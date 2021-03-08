@@ -3,6 +3,7 @@
 // This is Pat's business idea!!
 // powerd by maramhmohammad
 
+// console.log('test');
 //object1
 
 
@@ -16,24 +17,28 @@ let Seattle={
   CustPerHour:[],
   Sal:0,
 
-    random: function(min,max) { //random function
+  gitRandom: function(min,max) { // Random function gives us random number
     return Math.floor(Math.random() * (max - min + 1) + min);
-  },
-  
 
-  render: function () {  //render function 
-    let unorderdList=document.createElement('ul');
-    let site=document.createElement('li');
-    site.innerText=Seattle.getSite();
-    unorderdList.appendChild(site);
-    main.appendChild(unorderdList);
-
-// // console.log(unorderdList);
-  }
   },
-;
-Seattle.random();
-Seattle.render();
+
+};
+
+console.log(Seattle);
+
+
+//   render: function () { //render function
+
+//     let unorderdList=document.createElement('ul');
+//     let site=document.createElement('li');
+//     site.innerText=this.getSite();
+//     unorderdList.appendChild(site);
+//     main.appendChild(unorderdList);
+
+//   // // console.log(unorderdList);
+//   }
+
+// Seattle.render();
 
 
 
@@ -49,22 +54,24 @@ let Tokyo={
   CustPerHour:[],
   Sal:0,
 
-    random: function(min,max) { //random function
+  gitRandom: function(min,max) { // Random function gives us random number
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
   render: function () {
-    
-  }
+
   },
 
 };
 
+console.log(Tokyo);
 
 
 
 
 
-// // //object 3
+
+
+// // // //object 3
 let Dubai={
   site: 'Dubai',
   minCust:  11,
@@ -74,21 +81,24 @@ let Dubai={
   CustPerHour:[],
   Sal:0,
 
-  random: function(min,max) { //random function
+  gitRandom: function(min,max) { // Random function gives us random number
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
 
   render: function () {
-    
-  }
+
   },
 };
+
+Dubai.render();
+console.log(Dubai);
 
 
 
 
 
 // // //object 4
+
 let Paris={
   site: 'Paris',
   minCust:  20,
@@ -98,16 +108,14 @@ let Paris={
   CustPerHour:[],
   Sal:0,
 
-  random: function(min,max) { //random function
+  gitRandom: function(min,max) {  // Random function gives us random number
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
-
-
   render: function () {
-    
-  }
+
   },
 };
+console.log(Paris);
 
 
 
@@ -124,14 +132,15 @@ let Lima={
   CustPerHour:[],
   Sal:0,
 
-    random: function(min,max) { //random function
+  gitRandom: function(min,max) {  // Random function gives us random number
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
 
 
   render: function () {
-    
-  }
-  },
 
+  },
 };
+
+Lima.render();
+console.log(Lima);
