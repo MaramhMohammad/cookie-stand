@@ -1,146 +1,190 @@
 'use strict';
-
 // This is Pat's business idea!!
 // powerd by maramhmohammad
-
 // console.log('test');
+
 //object1
-
-
-// let main=document.getElementById('demo');
-let Seattle={
+let seattle={
   site: 'seattle',
-  minCust: 20,
-  maxCust: 65,
-  avgCokie: 6.3,
+  minCust: 20,//The minimum number of customers per hour.
+  maxCust: 65,//The maximum number of customers per hour.
+  avgCokies: 6.3,//The average number of cookies purchased per customer.
   hours:['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-  CustPerHour:[],
-  Sal:0,
-
-  gitRandom: function(min,max) { // Random function gives us random number
-    return Math.floor(Math.random() * (max - min + 1) + min);
-
+  salesPerHourArray: [],//calculated cookies each hour
+  dailySaleTotal: 0,//total cookies all day
+  randomNumCustPerHour: function() { // generate a randome number of customers per hour
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  // source used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
   },
-
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generate
+  getAvgCookiesHour: function () {
+    for (let i = 0; i < this.hours.length; i++) {
+      let hourlyCookies = Math.floor(this.randomNumCustPerHour() * this.avgCokies);
+      this.salesPerHourArray.push(hourlyCookies);
+      this.dailySaleTotal += hourlyCookies;
+    }
+  },
+  render: function () {
+    this.getAvgCookiesHour();
+    let seattleList = document.getElementById('seattle');
+    for (let i = 0; i < this.hours.length; i++) {
+      let listItem = document.createElement('li');
+      listItem.textContent = `${this.hours[i]} : ${this.salesPerHourArray[i]}`;
+      seattleList.appendChild(listItem);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySaleTotal}`;
+    seattleList.appendChild(li);
+  },
 };
-
-console.log(Seattle);
-
-
-//   render: function () { //render function
-
-//     let unorderdList=document.createElement('ul');
-//     let site=document.createElement('li');
-//     site.innerText=this.getSite();
-//     unorderdList.appendChild(site);
-//     main.appendChild(unorderdList);
-
-//   // // console.log(unorderdList);
-//   }
-
-// Seattle.render();
-
-
-
-
-
+seattle.render();
 // // //object 2
-let Tokyo={
+let tokyo={
   site: 'Tokyo',
-  minCust:  3,
-  maxCust:  24,
-  avgCokie:  1.2,
+  minCust:  3,//The minimum number of customers per hour.
+  maxCust:  24,//The maximum number of customers per hour.
+  avgCokies:  1.2,//The average number of cookies purchased per customer.
   hours:['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-  CustPerHour:[],
-  Sal:0,
+  salesPerHourArray: [],//calculated cookies each hour
+  dailySaleTotal: 0,//total cookies all day
+  randomNumCustPerHour: function() { // generate a randome number of customers per hour
+    // console.log('Random number of customers');
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  }, // source used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-  gitRandom: function(min,max) { // Random function gives us random number
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generate
+  getAvgCookiesHour: function () {
+    for (let i = 0; i < this.hours.length; i++) {
+      let hourlyCookies = Math.floor(this.randomNumCustPerHour() * this.avgCokies);
+      this.salesPerHourArray.push(hourlyCookies);
+      this.dailySaleTotal += hourlyCookies;
+    }
+  }, //render method
   render: function () {
-
+    this.getAvgCookiesHour();
+    let tokyoList = document.getElementById('tokyo');
+    for (let i = 0; i < this.hours.length; i++) {
+      let listItem = document.createElement('li');
+      listItem.textContent = `${this.hours[i]} : ${this.salesPerHourArray[i]}`;
+      tokyoList.appendChild(listItem);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySaleTotal}`;
+    tokyoList.appendChild(li);
   },
-
 };
+tokyo.render();
 
-console.log(Tokyo);
+//object 3
 
-
-
-
-
-
-
-// // // //object 3
-let Dubai={
+let dubai={
   site: 'Dubai',
-  minCust:  11,
-  maxCust: 38,
-  avgCokie: 3.7,
+  minCust:  11,//The minimum number of customers per hour.
+  maxCust: 38, //The maximum number of customers per hour.
+  avgCokies: 3.7,//The average number of cookies purchased per customer.
   hours:['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-  CustPerHour:[],
-  Sal:0,
+  salesPerHourArray: [],//calculated cookies each hour
+  dailySaleTotal: 0,//total cookies all day
+  randomNumCustPerHour: function() { // generate a randome number of customers per hour
+    // console.log('Random number of customers');
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  }, // source used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-  gitRandom: function(min,max) { // Random function gives us random number
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  },
-
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generate
+  getAvgCookiesHour: function () {
+    for (let i = 0; i < this.hours.length; i++) {
+      let hourlyCookies = Math.floor(this.randomNumCustPerHour() * this.avgCokies);
+      this.salesPerHourArray.push(hourlyCookies);
+      this.dailySaleTotal += hourlyCookies;
+    }
+  }, //render method
   render: function () {
-
+    this.getAvgCookiesHour();
+    let dubaiList = document.getElementById('dubai');
+    for (let i = 0; i < this.hours.length; i++) {
+      let listItem = document.createElement('li');
+      listItem.textContent = `${this.hours[i]} : ${this.salesPerHourArray[i]}`;
+      dubaiList.appendChild(listItem);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySaleTotal}`;
+    dubaiList.appendChild(li);
   },
 };
 
-Dubai.render();
-console.log(Dubai);
+dubai.render();
 
+//object 4
 
-
-
-
-// // //object 4
-
-let Paris={
+let paris={
   site: 'Paris',
-  minCust:  20,
-  maxCust:  38,
-  avgCokie:  2.3,
+  minCust:  20,//The minimum number of customers per hour.
+  maxCust:  38, //The maximum number of customers per hour.
+  avgCokies:  2.3,//The average number of cookies purchased per customer.
   hours:['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-  CustPerHour:[],
-  Sal:0,
+  salesPerHourArray: [],//calculated cookies each hour
+  dailySaleTotal: 0,//total cookies all day
+  randomNumCustPerHour: function() { // generate a randome number of customers per hour
+    // console.log('Random number of customers');
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  }, // source used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-  gitRandom: function(min,max) {  // Random function gives us random number
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generate
+  getAvgCookiesHour: function () {
+    for (let i = 0; i < this.hours.length; i++) {
+      let hourlyCookies = Math.floor(this.randomNumCustPerHour() * this.avgCokies);
+      this.salesPerHourArray.push(hourlyCookies);
+      this.dailySaleTotal += hourlyCookies;
+    }
+  }, //render method
   render: function () {
-
+    this.getAvgCookiesHour();
+    let parisList = document.getElementById('paris');
+    for (let i = 0; i < this.hours.length; i++) {
+      let listItem = document.createElement('li');
+      listItem.textContent = `${this.hours[i]} : ${this.salesPerHourArray[i]}`;
+      parisList.appendChild(listItem);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySaleTotal}`;
+    parisList.appendChild(li);
   },
 };
-console.log(Paris);
+paris.render();
 
+// // // //object 5
 
-
-
-
-
-// // //object 5
-let Lima={
+let lima={
   site: 'Lima',
-  minCust:  2,
-  maxCust:  16,
-  avgCokie:  4.6,
+  minCust:  2,//The minimum number of customers per hour.
+  maxCust:  16,//The maximum number of customers per hour.
+  avgCokies:  4.6,//The average number of cookies purchased per customer.
   hours:['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-  CustPerHour:[],
-  Sal:0,
-
-  gitRandom: function(min,max) {  // Random function gives us random number
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  },
-
-
+  salesPerHourArray: [],//calculated cookies each hour
+  dailySaleTotal: 0,//total cookies all day
+  randomNumCustPerHour: function() { // generate a randome number of customers per hour
+    // console.log('Random number of customers');
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  }, // source used: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generate
+  getAvgCookiesHour: function () {
+    for (let i = 0; i < this.hours.length; i++) {
+      let hourlyCookies = Math.floor(this.randomNumCustPerHour() * this.avgCokies);
+      this.salesPerHourArray.push(hourlyCookies);
+      this.dailySaleTotal += hourlyCookies;
+    }
+  }, //render method
   render: function () {
-
+    this.getAvgCookiesHour();
+    let limaList = document.getElementById('lima');
+    for (let i = 0; i < this.hours.length; i++) {
+      let listItem = document.createElement('li');
+      listItem.textContent = `${this.hours[i]} : ${this.salesPerHourArray[i]}`;
+      limaList.appendChild(listItem);
+    }
+    let li = document.createElement('li');
+    li.textContent = `Total: ${this.dailySaleTotal}`;
+    limaList.appendChild(li);
   },
 };
-
-Lima.render();
-console.log(Lima);
+lima.render();
