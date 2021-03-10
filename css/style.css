@@ -5,6 +5,7 @@
     list-style: none;
     box-sizing: border-box;
 }
+
 body{
     font-family: montserrat
 }
@@ -12,8 +13,7 @@ body{
 nav{
     background: #414446;
     height: 80px;
-    width: 100%;
-        
+    width: 100%;   
 }
 
 label.logo {
@@ -21,18 +21,19 @@ label.logo {
     font-size: 50px;
     padding: 0 100px;
     font-weight: bold;
-
 }
+
 nav ul{ 
     float:right;
     margin-right: 250px;
-
 }
+
 nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
+
 nav ul li a{
     color: white;
     font-size: 17px;
@@ -40,7 +41,7 @@ nav ul li a{
 }
 
  a.active,a:hover{
-     background: #829db3;
+     background: #a6a8ac;
      transition: .5s;
  }
 
@@ -59,8 +60,29 @@ nav ul li a{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
-  
+    font-family: 'Poppins', sans-serif; 
+}
+
+.surface{
+    height: 140px;
+    width: 500%;
+    background-image: url(/img/02.jpg);
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    left:0%;
+    background-repeat: repeat-x;
+    animation: moveRight 15s linear infinite;
+}
+
+.fishh{
+    position: absolute;
+    bottom: 8%;
+    left: 24%;
+}
+
+@keyframes moveRight{
+    100%{transform:translateX(-2950px)}
 }
 
 footer{
@@ -72,6 +94,5 @@ footer{
     height: auto;
     width: 100vw;
     padding-top: 40px;
-    color: #fff;
-
+    color: #fff; 
 }
