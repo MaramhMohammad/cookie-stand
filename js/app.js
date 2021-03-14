@@ -20,7 +20,6 @@ let paris = new Salmon('Paris', 20, 38, 2.3);
 let lima = new Salmon('Lima', 2, 16, 4.6);
 let dubai = new Salmon('Dubai', 11, 38, 3.7);
 
-
 let Locations = [seattle, tokyo, dubai, lima, paris];
 let allHourlyTotal = [];
 let grandTotal = 0;
@@ -124,10 +123,10 @@ function renderFooter(){
 
 renderHead();
 
-paris.render();
-lima.render();
+seattle.render();
 tokyo.render();
 dubai.render();
-seattle.render();
+paris.render();
+lima.render();
 
 renderFooter();
