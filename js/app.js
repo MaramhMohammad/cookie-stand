@@ -1,8 +1,6 @@
 'use strict';
 // console.log('test');
 
-'use strict';
-
 let hours=['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function Salmon(site, minCust, maxCust, avgCokies) {
@@ -130,3 +128,45 @@ paris.render();
 lima.render();
 
 renderFooter();
+
+
+
+let form=document.getElementById('maramForm');
+
+// let addButton=document.getElementById('submit');
+let tableData = document.createElement('td');
+// tableData.appendChild(tableData);
+
+// function newSite() {
+
+// }
+
+form.addEventListener('submit',function(event){
+  event.preventDefault();
+
+  let newLocation=event.target.site.value;
+  tableData.textContent=newLocation;
+  newLocation.innerHTML = document.getElementById('location').value;
+  table.appendChild(newLocation);
+
+  let newMin = parseInt(event.target.minCust.value);
+  newMin.innerHTML = document.getElementById('min').value;
+  table.appendChild(newMin);
+
+  let newMax = parseInt(event.target.maxCust.value);
+  newMax.innerHTML = document.getElementById('max').value;
+  table.appendChild(newMax);
+
+  let newAvg = parseInt(event.target.avgCokies.value);
+  newAvg.innerHTML = document.getElementById('avg').value;
+  table.appendChild(newAvg);
+
+
+});
+
+form.addEventListener('submit',addItem);
+function addItem(){
+  let submit=document.getElementById('submit');
+  table.appendChild(submit);
+}
+// addItem();
